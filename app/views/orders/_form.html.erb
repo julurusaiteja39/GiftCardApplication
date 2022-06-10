@@ -1,48 +1,73 @@
-<%= form_with(model: order) do |form| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<body>
+  <div class="container card col-sm-6 my-4 p-4">
+  <%= form_with(model: order) do |form| %>
+    <% if order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-        <% order.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% order.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="mb-3 col-sm-8">
+        <%# <label>Date:</label> %>
+        <%="Date: "+ Time.now.strftime("%F")%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 mb-3">
+        <%= form.label :firstname %>
+        <%= form.text_field :firstname, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-6 mb-3">
+        <%= form.label :lastname %>
+        <%= form.text_field :lastname, class:"form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 mb-3">
+        <%= form.label :value %>
+        <%= form.number_field :value, class:"form-control",id: :val,onchange: "fun()" %>
+      </div>
+        <div class="col-sm-6 mb-3">
+        <%= form.label :Commission %>
+        <%= form.number_field :commision, class:"form-control", id: :res %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 mb-3">
+        <%= form.label :mobile %>
+        <%= form.text_field :mobile, class:"form-control" %>
+      </div>
+
+      <div class="col-sm-6 mb-3">
+        <%= form.label :address %>
+        <%= form.text_field :address, class:"form-control" %>
+      </div>
+    </div>
+    <div class="field">
+      <% form.label :UserId %>
+      <%= form.number_field :user_id,
+          id: :order_user_id, value: current_user.id,type: :hidden
+      %>
+    </div>
+
+    <div class="mb-3 d-flex justify-content-center">
+      <%= form.submit class:"btn btn-success" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :firstname %>
-    <%= form.text_field :firstname %>
   </div>
-
-  <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :value %>
-    <%= form.number_field :value %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mobile %>
-    <%= form.text_field :mobile %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
-  <div class="field">
-    <% form.label :UserId %>
-    <%= form.number_field :user_id,
-        id: :order_user_id, value: current_user.id,type: :hidden
-     %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</body>
+<script>
+  function fun(){
+    num = document.getElementById("val").value;
+    result = parseInt(num);
+    result = result * 0.05;
+    document.getElementById("res").value=result;
+  }
+</script>

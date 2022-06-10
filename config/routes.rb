@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
   resources :users, except: [:new]
   resources :sessions
+  get "/admin", to: "admin#history"
+  get '/order/:id/edit', to: 'admin#edit'
+  post '/order/:id/edit', to: 'admin#update'
 end

@@ -33,9 +33,9 @@ class OrdersController < ApplicationController
         @cdt = current_time.strftime "%d/%m/%Y"
         @order.update(date:@cdt)
         #puts "Current Date and Time: "+cdt
-        @total = @order.value*0.05
+        # @total = @order.value*0.05
         @fname = @order.firstname + @order.lastname
-        @order.update(commision:@total)
+        # @order.update(commision:@total)
         @order.update(fullname: @fname)
         format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @order }
@@ -80,6 +80,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:firstname, :lastname, :value, :mobile, :address, :user_id)
+      params.require(:order).permit(:firstname, :lastname, :value, :commision, :mobile, :address, :user_id)
     end
 end

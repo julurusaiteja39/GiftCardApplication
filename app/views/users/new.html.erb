@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark cotainer-fluid">
+<nav class="container-fluid navbar navbar-dark bg-dark ">
     <h1 class="navbar-brand px-2">Gift Card Application</h1>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">   
         <form class="form-inline p-3 text-end">
@@ -6,6 +6,7 @@
         </form>
     </div>
 </nav>
+<div class="container card col-sm-4 my-4 p-4">
 <h1>Signup</h1>
 <%= form_with(model: @user,url: '/users', local: true) do |f| %>
  
@@ -29,8 +30,9 @@
     <%= f.email_field :email, class: "form-control" %>
     </div>
     <br>
-    <div class="form-group">
-        <%= f.submit :Register %>
+    <div class="form-group d-flex justify-content-center" >
+        <%= f.submit :Register, class:"btn btn-primary" %>
     </div>
  
 <% end %>
+</div>

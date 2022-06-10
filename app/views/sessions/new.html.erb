@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark cotainer-fluid">
+<nav class="navbar navbar-dark bg-dark container-fluid">
     <h1 class="navbar-brand px-2">Gift Card Application</h1>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <form class="form-inline m-3 text-end">
@@ -6,11 +6,11 @@
         </form>
     </div>
 </nav>
-<div class="container card col-sm-4 p-2">
+<div class="container card col-sm-4 p-2 my-3">
     <h1>Login</h1>
     <div>
     <%= form_with(scope: :session, url: login_path, method: :post) do |f| %>
-        <div class="fadeIn first">
+        <div class="mb-3">
         <%= f.label :username, class:"fadeIn second" %><br/>
         <%= f.text_field :username, class: "form-control" %>
         </div>
