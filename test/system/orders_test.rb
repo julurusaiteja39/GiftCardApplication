@@ -19,7 +19,7 @@ class OrdersTest < ApplicationSystemTestCase
     fill_in "Lastname", with: @order.lastname
     fill_in "Mobile", with: @order.mobile
     fill_in "Value", with: @order.value
-    click_on "Create Order"
+    click_on "Place Order"
 
     assert_text "Order was successfully created"
     click_on "Back"

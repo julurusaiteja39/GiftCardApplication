@@ -3,6 +3,7 @@
   <%= form_with(model: order) do |form| %>
     <% if order.errors.any? %>
       <div id="error_explanation">
+        <label>Order Id</label>
         <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
         <ul>
@@ -20,28 +21,28 @@
     </div>
     <div class="row">
       <div class="col-sm-6 mb-3">
-        <%= form.label :firstname %>
+        <label>Recipient First Name</label>
         <%= form.text_field :firstname, class:"form-control" %>
       </div>
 
       <div class="col-sm-6 mb-3">
-        <%= form.label :lastname %>
+        <label>Recipient Last Name</label>
         <%= form.text_field :lastname, class:"form-control" %>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-6 mb-3">
-        <%= form.label :value %>
+        <label>Gift Card Value(INR)</label>
         <%= form.number_field :value, class:"form-control",id: :val,onchange: "fun()" %>
       </div>
         <div class="col-sm-6 mb-3">
-        <%= form.label :Commission %>
+        <label style="font-size:12px">Amount Payable(5% commission Inclusive)</label>
         <%= form.number_field :commision, class:"form-control", id: :res %>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-6 mb-3">
-        <%= form.label :mobile %>
+        <label>Recipient Mobile Number</label>
         <%= form.text_field :mobile, class:"form-control" %>
       </div>
 
@@ -58,7 +59,7 @@
     </div>
 
     <div class="mb-3 d-flex justify-content-center">
-      <%= form.submit class:"btn btn-success" %>
+      <%= form.submit "Place Order", class:"btn btn-success"  %>
     </div>
   <% end %>
   </div>

@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
         @order.update(date:@cdt)
         #puts "Current Date and Time: "+cdt
         # @total = @order.value*0.05
-        @fname = @order.firstname + @order.lastname
+        @fname = @order.firstname + " " + @order.lastname
         # @order.update(commision:@total)
         @order.update(fullname: @fname)
         format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
