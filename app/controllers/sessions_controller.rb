@@ -7,6 +7,10 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:session][:password])
           session[:user_id] = user.id
           flash[:notice] = "Logged in successfully."
+          # @user_signed_in = user
+          # puts "-----------------------------"
+          # p @user_signed_in
+          # puts "-----------------------------"
           redirect_to '/sessions'
         else
           flash[:notice] = "There was something wrong with your login details."
