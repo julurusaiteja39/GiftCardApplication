@@ -37,7 +37,7 @@
       </div>
         <div class="col-sm-6 mb-3">
         <label style="font-size:12px">Amount Payable(5% commission Inclusive)</label>
-        <%= form.number_field :commision, class:"form-control", id: :res %>
+        <%= form.number_field :commision, step: 0.01,class:"form-control", id: :res %>
       </div>
     </div>
     <div class="row">
@@ -67,7 +67,7 @@
 <script>
   function fun(){
     num = document.getElementById("val").value;
-    result = parseInt(num);
+    result = parseFloat(num);
     result = result * 0.05;
     document.getElementById("res").value=result;
   }
