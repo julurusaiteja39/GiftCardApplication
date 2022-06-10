@@ -1,0 +1,20 @@
+ <nav class="navbar navbar-dark bg-dark cotainer-fluid">
+    <h1 class="navbar-brand px-2">Gift Card Application</h1>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <form class="form-inline p-3 text-end">
+            <%= link_to "Logout", logout_path, method: :delete,class: "text-light bg-dark text-decoration-none" %>
+        </form>
+        <form class="form-inline p-3 text-end">
+            <%= link_to "New Order", new_order_path, method: :get,class: "text-light bg-dark text-decoration-none" %>
+        </form>
+        <form class="form-inline p-3 text-end">
+            <%= link_to "Order History", orders_path, method: :get,class: "text-light bg-dark text-decoration-none" %>
+        </form>
+    </div>
+</nav>
+
+<div align="center" style="border:black; border-width:2px; border-style:outset;">
+       
+        <%= render 'form', order: @order %>
+
+</div>

@@ -1,0 +1,50 @@
+<nav class="navbar navbar-dark bg-dark cotainer-fluid">
+    <h1 class="navbar-brand px-2">Gift Card Application</h1>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <form class="form-inline p-3 text-end">
+            <%= link_to "Logout", logout_path, method: :delete,class: "text-light bg-dark text-decoration-none" %>
+        </form>
+        <form class="form-inline p-3 text-end">
+            <%= link_to "New Order", new_order_path, method: :get,class: "text-light bg-dark text-decoration-none" %>
+        </form>
+        <form class="form-inline p-3 text-end">
+            <%= link_to "Order History", orders_path, method: :get,class: "text-light bg-dark text-decoration-none" %>
+        </form>
+    </div>
+</nav>
+<div align="center">
+  <h1>Orders</h1>
+</div>
+
+<table class= "table" align="center">
+  <thead class ="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Commision</th>
+      <th>Delivery Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+    <% if order.user == current_user%>
+      <tr>
+        <td><%= order.id%></td>
+        <td><%= order.date%></td>
+        <td><%= order.fullname  %></td>
+        <td><%= order.value %></td>
+        <td><%= order.commision%></td>
+        <td><%= order.delivery_status%></td>
+      </tr>
+      <%end%>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
